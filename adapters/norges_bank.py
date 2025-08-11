@@ -40,8 +40,7 @@ def fetch_sdmx_json(endpoint: str, params: Dict[str, Any] = None) -> Dict[str, A
     
     try:
         logger.info(f"Fetching Norges Bank data from: {url}")
-        response = safe_request("GET", url, params=default_params, timeout=30)
-        response.raise_for_status()
+        response = safe_request(url, method="GET", params=default_params, timeout=30)
         
         data = response.json()
         logger.info(f"Successfully fetched {len(response.text)} bytes from Norges Bank API")
@@ -65,7 +64,7 @@ def parse_sdmx_json(data: Dict[str, Any]) -> pd.DataFrame:
     """
     try:
         # Extract data from SDMX-JSON structure
-        data_sets = data.get("dataSets", [])
+        data_sets = data.get("data", {}).get("dataSets", [])
         if not data_sets:
             raise DataParseError("No data sets found in SDMX-JSON response")
         
@@ -83,7 +82,7 @@ def parse_sdmx_json(data: Dict[str, Any]) -> pd.DataFrame:
         observations = series_data.get("observations", {})
         
         # Get dimension information for time periods
-        structure = data.get("structure", {})
+        structure = data.get("data", {}).get("structure", {})
         dimensions = structure.get("dimensions", {})
         
         # Find time dimension

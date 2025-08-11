@@ -27,7 +27,7 @@
     {
       "id": "interest_rate",
       "path": "/data/interest_rate/latest.json",
-      "title": "Policy Interest Rate",
+      "title": "Key Policy Rate (Styringsrenten)",
       "unit": "Percent",
       "frequency": "monthly",
       "politics_overlay": true
@@ -81,5 +81,5 @@
       "politics_overlay": true
     }
   ],
-  "last_updated": "{\"timestamp\": \"2025-08-11T17:53:04Z\"}"
+  "last_updated": "{\"timestamp\": \"2024-01-01T00:00:00Z\"}"
 }

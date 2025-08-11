@@ -56,17 +56,21 @@ indicators:
   - id: interest_rate
     adapter: norges_bank
     params:
-      endpoint: "policy_rate"
-      frequency: "monthly"
+      endpoint: "IR/M.KPRA.SD."
+      api_params:
+        startPeriod: "2000-01-01"
+        endPeriod: "2025-08-01"
+        locale: "no"
     transform: interest_rate_standardize
     out_dir: data/interest_rate
     schedule: monthly
-    title: "Policy Interest Rate"
+    title: "Key Policy Rate (Styringsrenten)"
     unit: "Percent"
     frequency: "monthly"
     source:
       name: "Norges Bank"
-      url: "https://www.norges-bank.no/en/topics/interest-rates/"
+      table: "M.KPRA.SD."
+      url: "https://data.norges-bank.no/api/data/IR/M.KPRA.SD."
     politics_overlay: true
 
   - id: oil_price

@@ -65,15 +65,19 @@ def process_indicator(indicator_config: Dict[str, Any]) -> Dict[str, Any]:
             possible_names = [
                 f"pipelines.indicators.{indicator_id}",
                 f"pipelines.indicators.{indicator_id}_{indicator_config['adapter']}",
+                f"pipelines.indicators.{indicator_id}_nb",  # For Norges Bank indicators
                 module_name
             ]
             
             module = None
             for name in possible_names:
                 try:
+                    logger.debug(f"Trying to import: {name}")
                     module = importlib.import_module(name)
+                    logger.info(f"Successfully imported: {name}")
                     break
-                except ImportError:
+                except ImportError as e:
+                    logger.debug(f"Failed to import {name}: {e}")
                     continue
             
             if module is None:

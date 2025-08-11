@@ -1,0 +1,85 @@
+{
+  "indicators": [
+    {
+      "id": "cpi",
+      "path": "/data/cpi/latest.json",
+      "title": "Consumer Price Index (CPI)",
+      "unit": "Index (2015=100)",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "unemployment",
+      "path": "/data/unemployment/latest.json",
+      "title": "Unemployment Rate",
+      "unit": "Percent",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "gdp",
+      "path": "/data/gdp/latest.json",
+      "title": "Gross Domestic Product (GDP)",
+      "unit": "Million NOK",
+      "frequency": "quarterly",
+      "politics_overlay": true
+    },
+    {
+      "id": "interest_rate",
+      "path": "/data/interest_rate/latest.json",
+      "title": "Policy Interest Rate",
+      "unit": "Percent",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "oil_price",
+      "path": "/data/oil_price/latest.json",
+      "title": "Oil Price (Brent)",
+      "unit": "USD per barrel",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "housing_prices",
+      "path": "/data/housing_prices/latest.json",
+      "title": "Housing Price Index",
+      "unit": "Index (2015=100)",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "trade_balance",
+      "path": "/data/trade_balance/latest.json",
+      "title": "Trade Balance",
+      "unit": "Million NOK",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "government_debt",
+      "path": "/data/government_debt/latest.json",
+      "title": "Government Debt",
+      "unit": "Million NOK",
+      "frequency": "quarterly",
+      "politics_overlay": true
+    },
+    {
+      "id": "population",
+      "path": "/data/population/latest.json",
+      "title": "Population",
+      "unit": "Thousands",
+      "frequency": "quarterly",
+      "politics_overlay": true
+    },
+    {
+      "id": "wage_growth",
+      "path": "/data/wage_growth/latest.json",
+      "title": "Wage Growth",
+      "unit": "Percent",
+      "frequency": "quarterly",
+      "politics_overlay": true
+    }
+  ],
+  "last_updated": "{\"timestamp\": \"2025-08-11T17:48:25Z\"}"
+}

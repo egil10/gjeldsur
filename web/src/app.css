@@ -1,0 +1,401 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color palette from config/palette.json */
+  --color-primary: #005AA3;
+  --color-primary-light: #4A90E2;
+  --color-primary-dark: #003D7A;
+  --color-secondary: #E03C31;
+  --color-secondary-light: #FF6B6B;
+  --color-secondary-dark: #B71C1C;
+  --color-success: #4CAF50;
+  --color-success-light: #81C784;
+  --color-success-dark: #2E7D32;
+  --color-warning: #FF9800;
+  --color-warning-light: #FFB74D;
+  --color-warning-dark: #F57C00;
+  --color-error: #F44336;
+  --color-error-light: #E57373;
+  --color-error-dark: #D32F2F;
+  
+  /* Neutral colors */
+  --color-white: #FFFFFF;
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EEEEEE;
+  --color-gray-300: #E0E0E0;
+  --color-gray-400: #BDBDBD;
+  --color-gray-500: #9E9E9E;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+  --color-black: #000000;
+  
+  /* Indicator colors */
+  --color-improving: #4CAF50;
+  --color-worsening: #F44336;
+  --color-stable: #FF9800;
+  
+  /* Background colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-tile: #FFFFFF;
+  --bg-tile-hover: #FAFAFA;
+  
+  /* Text colors */
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-disabled: #BDBDBD;
+  --text-inverse: #FFFFFF;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+/* Dashboard */
+.dashboard {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-4);
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+  padding: var(--spacing-6) 0;
+}
+
+.dashboard-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.dashboard-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-4);
+}
+
+.dashboard-meta {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Tile grid */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+
+/* Individual tile */
+.tile {
+  background: var(--bg-tile);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-gray-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.tile:hover {
+  background: var(--bg-tile-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-4);
+}
+
+.tile-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.tile-source {
+  font-size: var(--font-size-xs);
+  color: var(--text-disabled);
+  text-decoration: none;
+}
+
+.tile-source:hover {
+  color: var(--color-primary);
+}
+
+.tile-value {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+  line-height: 1;
+}
+
+.tile-unit {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-left: var(--spacing-1);
+}
+
+.tile-deltas {
+  display: flex;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.delta-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.delta-badge.positive {
+  background-color: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.delta-badge.negative {
+  background-color: var(--color-error-light);
+  color: var(--color-error-dark);
+}
+
+.delta-badge.neutral {
+  background-color: var(--color-gray-200);
+  color: var(--text-secondary);
+}
+
+.delta-badge.none {
+  background-color: var(--color-gray-100);
+  color: var(--text-disabled);
+}
+
+.tile-sparkline {
+  height: 60px;
+  margin-bottom: var(--spacing-3);
+  position: relative;
+}
+
+.tile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--text-disabled);
+}
+
+.tile-updated {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+/* Loading states */
+.tile.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.tile.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--color-gray-300);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error states */
+.tile.error {
+  border-color: var(--color-error);
+  background-color: var(--color-error-light);
+}
+
+.tile-error {
+  color: var(--color-error-dark);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  padding: var(--spacing-4);
+}
+
+/* Political overlay */
+.political-bands {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.political-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  opacity: 0.1;
+  transition: opacity var(--transition-normal);
+}
+
+.political-band:hover {
+  opacity: 0.2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--spacing-2);
+  }
+  
+  .dashboard-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .tile-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3);
+  }
+  
+  .tile {
+    padding: var(--spacing-4);
+  }
+  
+  .tile-value {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .tile {
+    padding: var(--spacing-3);
+  }
+  
+  .tile-value {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .tile {
+    border-width: 2px;
+  }
+  
+  .delta-badge {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.tile:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.tile-source:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

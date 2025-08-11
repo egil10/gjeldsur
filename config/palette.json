@@ -1,0 +1,63 @@
+{
+  "colors": {
+    "primary": {
+      "main": "#005AA3",
+      "light": "#4A90E2",
+      "dark": "#003D7A"
+    },
+    "secondary": {
+      "main": "#E03C31",
+      "light": "#FF6B6B",
+      "dark": "#B71C1C"
+    },
+    "success": {
+      "main": "#4CAF50",
+      "light": "#81C784",
+      "dark": "#2E7D32"
+    },
+    "warning": {
+      "main": "#FF9800",
+      "light": "#FFB74D",
+      "dark": "#F57C00"
+    },
+    "error": {
+      "main": "#F44336",
+      "light": "#E57373",
+      "dark": "#D32F2F"
+    },
+    "neutral": {
+      "white": "#FFFFFF",
+      "gray50": "#FAFAFA",
+      "gray100": "#F5F5F5",
+      "gray200": "#EEEEEE",
+      "gray300": "#E0E0E0",
+      "gray400": "#BDBDBD",
+      "gray500": "#9E9E9E",
+      "gray600": "#757575",
+      "gray700": "#616161",
+      "gray800": "#424242",
+      "gray900": "#212121",
+      "black": "#000000"
+    }
+  },
+  "indicators": {
+    "positive": "#4CAF50",
+    "negative": "#F44336",
+    "neutral": "#9E9E9E",
+    "improving": "#4CAF50",
+    "worsening": "#F44336",
+    "stable": "#FF9800"
+  },
+  "background": {
+    "primary": "#FFFFFF",
+    "secondary": "#F5F5F5",
+    "tile": "#FFFFFF",
+    "tileHover": "#FAFAFA"
+  },
+  "text": {
+    "primary": "#212121",
+    "secondary": "#757575",
+    "disabled": "#BDBDBD",
+    "inverse": "#FFFFFF"
+  }
+}

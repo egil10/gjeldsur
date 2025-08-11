@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "title": "Norway Macro Clock",
+    "description": "Real-time dashboard of Norway's key economic indicators",
+    "author": "Norway Macro Clock",
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-01"
+  },
+  "i18n": {
+    "default": "en",
+    "supported": ["en", "no"],
+    "translations": {
+      "en": {
+        "title": "Norway Macro Clock",
+        "subtitle": "Key Economic Indicators",
+        "lastUpdated": "Last updated",
+        "source": "Source",
+        "loading": "Loading...",
+        "error": "Error loading data",
+        "noData": "No data available",
+        "monthOverMonth": "MoM",
+        "yearOverYear": "YoY",
+        "improving": "Improving",
+        "worsening": "Worsening",
+        "stable": "Stable"
+      },
+      "no": {
+        "title": "Norsk Makroklokke",
+        "subtitle": "Viktige Økonomiske Indikatorer",
+        "lastUpdated": "Sist oppdatert",
+        "source": "Kilde",
+        "loading": "Laster...",
+        "error": "Feil ved lasting av data",
+        "noData": "Ingen data tilgjengelig",
+        "monthOverMonth": "Måned-til-måned",
+        "yearOverYear": "År-til-år",
+        "improving": "Forbedrer",
+        "worsening": "Forverrer",
+        "stable": "Stabil"
+      }
+    }
+  },
+  "settings": {
+    "refreshInterval": 300000,
+    "maxDataPoints": 100,
+    "defaultLanguage": "en",
+    "enablePolitics": true,
+    "enableAnimations": true
+  }
+}

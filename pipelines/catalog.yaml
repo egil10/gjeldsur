@@ -1,0 +1,184 @@
+indicators:
+  - id: cpi
+    adapter: ssb_px
+    params:
+      dataset: 1086
+      lang: en
+      date_field_guess: ["Month", "time", "Tid"]
+      value_field_guess: ["value", "CPI total index"]
+    transform: cpi_standardize
+    out_dir: data/cpi
+    schedule: monthly
+    title: "Consumer Price Index (CPI)"
+    unit: "Index (2015=100)"
+    frequency: "monthly"
+    source:
+      name: "SSB"
+      table: "03013"
+      url: "https://www.ssb.no/en/statbank/table/03013"
+    politics_overlay: true
+
+  - id: unemployment
+    adapter: nav
+    params:
+      endpoint: "unemployment_rate"
+      region: "all"
+    transform: unemployment_standardize
+    out_dir: data/unemployment
+    schedule: monthly
+    title: "Unemployment Rate"
+    unit: "Percent"
+    frequency: "monthly"
+    source:
+      name: "NAV"
+      url: "https://www.nav.no/arbeid/arbeidsledig"
+    politics_overlay: true
+
+  - id: gdp
+    adapter: ssb_px
+    params:
+      dataset: 1087
+      lang: en
+      date_field_guess: ["Quarter", "time", "Tid"]
+      value_field_guess: ["value", "GDP"]
+    transform: gdp_standardize
+    out_dir: data/gdp
+    schedule: quarterly
+    title: "Gross Domestic Product (GDP)"
+    unit: "Million NOK"
+    frequency: "quarterly"
+    source:
+      name: "SSB"
+      table: "1087"
+      url: "https://www.ssb.no/en/statbank/table/1087"
+    politics_overlay: true
+
+  - id: interest_rate
+    adapter: norges_bank
+    params:
+      endpoint: "policy_rate"
+      frequency: "monthly"
+    transform: interest_rate_standardize
+    out_dir: data/interest_rate
+    schedule: monthly
+    title: "Policy Interest Rate"
+    unit: "Percent"
+    frequency: "monthly"
+    source:
+      name: "Norges Bank"
+      url: "https://www.norges-bank.no/en/topics/interest-rates/"
+    politics_overlay: true
+
+  - id: oil_price
+    adapter: ssb_px
+    params:
+      dataset: 1088
+      lang: en
+      date_field_guess: ["Month", "time", "Tid"]
+      value_field_guess: ["value", "Oil price"]
+    transform: oil_price_standardize
+    out_dir: data/oil_price
+    schedule: monthly
+    title: "Oil Price (Brent)"
+    unit: "USD per barrel"
+    frequency: "monthly"
+    source:
+      name: "SSB"
+      table: "1088"
+      url: "https://www.ssb.no/en/statbank/table/1088"
+    politics_overlay: true
+
+  - id: housing_prices
+    adapter: ssb_px
+    params:
+      dataset: 1089
+      lang: en
+      date_field_guess: ["Month", "time", "Tid"]
+      value_field_guess: ["value", "Housing price index"]
+    transform: housing_prices_standardize
+    out_dir: data/housing_prices
+    schedule: monthly
+    title: "Housing Price Index"
+    unit: "Index (2015=100)"
+    frequency: "monthly"
+    source:
+      name: "SSB"
+      table: "1089"
+      url: "https://www.ssb.no/en/statbank/table/1089"
+    politics_overlay: true
+
+  - id: trade_balance
+    adapter: ssb_px
+    params:
+      dataset: 1090
+      lang: en
+      date_field_guess: ["Month", "time", "Tid"]
+      value_field_guess: ["value", "Trade balance"]
+    transform: trade_balance_standardize
+    out_dir: data/trade_balance
+    schedule: monthly
+    title: "Trade Balance"
+    unit: "Million NOK"
+    frequency: "monthly"
+    source:
+      name: "SSB"
+      table: "1090"
+      url: "https://www.ssb.no/en/statbank/table/1090"
+    politics_overlay: true
+
+  - id: government_debt
+    adapter: ssb_px
+    params:
+      dataset: 1091
+      lang: en
+      date_field_guess: ["Year", "time", "Tid"]
+      value_field_guess: ["value", "Government debt"]
+    transform: government_debt_standardize
+    out_dir: data/government_debt
+    schedule: quarterly
+    title: "Government Debt"
+    unit: "Million NOK"
+    frequency: "quarterly"
+    source:
+      name: "SSB"
+      table: "1091"
+      url: "https://www.ssb.no/en/statbank/table/1091"
+    politics_overlay: true
+
+  - id: population
+    adapter: ssb_px
+    params:
+      dataset: 1092
+      lang: en
+      date_field_guess: ["Quarter", "time", "Tid"]
+      value_field_guess: ["value", "Population"]
+    transform: population_standardize
+    out_dir: data/population
+    schedule: quarterly
+    title: "Population"
+    unit: "Thousands"
+    frequency: "quarterly"
+    source:
+      name: "SSB"
+      table: "1092"
+      url: "https://www.ssb.no/en/statbank/table/1092"
+    politics_overlay: true
+
+  - id: wage_growth
+    adapter: ssb_px
+    params:
+      dataset: 1093
+      lang: en
+      date_field_guess: ["Quarter", "time", "Tid"]
+      value_field_guess: ["value", "Wage growth"]
+    transform: wage_growth_standardize
+    out_dir: data/wage_growth
+    schedule: quarterly
+    title: "Wage Growth"
+    unit: "Percent"
+    frequency: "quarterly"
+    source:
+      name: "SSB"
+      table: "1093"
+      url: "https://www.ssb.no/en/statbank/table/1093"
+    politics_overlay: true

@@ -1,0 +1,60 @@
+{
+  "parties": {
+    "Ap": {
+      "name": "Arbeiderpartiet",
+      "color": "#E03C31"
+    },
+    "H": {
+      "name": "Høyre",
+      "color": "#005AA3"
+    },
+    "Sp": {
+      "name": "Senterpartiet",
+      "color": "#4CAF50"
+    },
+    "FrP": {
+      "name": "Fremskrittspartiet",
+      "color": "#0066CC"
+    },
+    "SV": {
+      "name": "Sosialistisk Venstreparti",
+      "color": "#FF0000"
+    },
+    "KrF": {
+      "name": "Kristelig Folkeparti",
+      "color": "#FFD700"
+    },
+    "V": {
+      "name": "Venstre",
+      "color": "#008000"
+    },
+    "MDG": {
+      "name": "Miljøpartiet De Grønne",
+      "color": "#00FF00"
+    },
+    "R": {
+      "name": "Rødt",
+      "color": "#FF0000"
+    }
+  },
+  "periods": [
+    {
+      "start": "2013-10-16",
+      "end": "2021-10-14",
+      "coalition": ["H", "FrP"],
+      "description": "Solberg government"
+    },
+    {
+      "start": "2021-10-14",
+      "end": "2023-10-16",
+      "coalition": ["Ap", "Sp"],
+      "description": "Støre government"
+    },
+    {
+      "start": "2023-10-16",
+      "end": "9999-12-31",
+      "coalition": ["H", "FrP"],
+      "description": "Current government"
+    }
+  ]
+}

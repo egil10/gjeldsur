@@ -79,7 +79,15 @@
       "unit": "Percent",
       "frequency": "quarterly",
       "politics_overlay": true
+    },
+    {
+      "id": "exchange_rates",
+      "path": "/data/exchange_rates/latest.json",
+      "title": "Exchange Rates (USD, EUR, GBP to NOK)",
+      "unit": "NOK per foreign currency",
+      "frequency": "monthly",
+      "politics_overlay": true
     }
   ],
-  "last_updated": "{\"timestamp\": \"2024-01-01T00:00:00Z\"}"
+  "last_updated": "2025-08-11T20:32:28.304937Z"
 }

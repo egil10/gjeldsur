@@ -186,3 +186,23 @@ indicators:
       table: "1093"
       url: "https://www.ssb.no/en/statbank/table/1093"
     politics_overlay: true
+
+  - id: exchange_rates
+    adapter: norges_bank
+    params:
+      endpoint: "EXR/M.USD+EUR+GBP.NOK.SP"
+      api_params:
+        startPeriod: "2000-01-01"
+        endPeriod: "2025-08-01"
+        locale: "no"
+    transform: exchange_rates_standardize
+    out_dir: data/exchange_rates
+    schedule: monthly
+    title: "Exchange Rates (USD, EUR, GBP to NOK)"
+    unit: "NOK per foreign currency"
+    frequency: "monthly"
+    source:
+      name: "Norges Bank"
+      table: "EXR/M.USD+EUR+GBP.NOK.SP"
+      url: "https://data.norges-bank.no/api/data/EXR/M.USD+EUR+GBP.NOK.SP"
+    politics_overlay: true

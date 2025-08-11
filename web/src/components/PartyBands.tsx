@@ -26,7 +26,7 @@ interface GovernmentData {
   periods: PoliticalPeriod[];
 }
 
-const PartyBands: React.FC<PartyBandsProps> = ({ data, height, width }) => {
+const PartyBands: React.FC<PartyBandsProps> = ({ data }) => {
   const [governmentData, setGovernmentData] = useState<GovernmentData | null>(null);
   const [loading, setLoading] = useState(true);
 

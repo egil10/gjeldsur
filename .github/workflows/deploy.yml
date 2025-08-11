@@ -11,20 +11,24 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         cache-dependency-path: web/package-lock.json
         
@@ -33,18 +37,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Install Node.js dependencies
-      working-directory: web
-      run: npm ci
-      
     - name: Run data pipeline
       run: |
         python pipelines/run_all.py --seed
         python scripts/verify_data.py --verbose
         
-    - name: Build React app
+    - name: Install Node.js dependencies and build
       working-directory: web
-      run: npm run build
+      run: npm ci && npm run build
       
     - name: Create site directory
       run: |

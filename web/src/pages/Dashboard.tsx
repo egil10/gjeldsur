@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
         setLastUpdated(index.last_updated);
         
         // Load all indicator data
-        const dataPromises = index.indicators.map(async (indicator) => {
+        const dataPromises = index.indicators.map(async (indicator: any) => {
           try {
             const data = await fetchIndicatorData(indicator.id);
             return { id: indicator.id, data };

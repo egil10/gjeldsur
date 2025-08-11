@@ -86,6 +86,72 @@ A real-time dashboard that looks like a dense "macro clock" with many compact ti
    cp -r plots site/ 2>/dev/null || true
    ```
 
+## 🌐 Deployment
+
+### 1️⃣ Auto-deploy via GitHub Actions (recommended)
+
+This is the **recommended approach** — your repo has a `.github/workflows/deploy.yml` that:
+
+- **Fetches data** → builds plots → builds site
+- **Pushes the build folder** to GitHub Pages
+- **Runs automatically** on push and on schedule (monthly)
+
+You only need to commit your code; Actions takes care of the site.
+
+**To enable:**
+1. Push your code to GitHub
+2. Go to repository **Settings → Pages**
+3. Set **Source** to **"GitHub Actions"**
+4. The workflow will automatically run and deploy to GitHub Pages
+
+**What happens:**
+- ✅ **On push to `main`**: Automatically rebuilds and deploys
+- ✅ **Monthly cron**: Updates data and redeploys (1st of each month at 6:00 UTC)
+- ✅ **Manual trigger**: Go to Actions tab → "Deploy to GitHub Pages" → "Run workflow"
+
+### 2️⃣ Manual Deployment (for testing)
+
+If you want to test locally before pushing:
+
+1. **Build the project**:
+   ```bash
+   # Install Python dependencies
+   pip install -r requirements.txt
+   
+   # Run data pipeline
+   python pipelines/run_all.py --seed
+   
+   # Install Node.js dependencies and build frontend
+   cd web
+   npm install
+   npm run build
+   cd ..
+   ```
+
+2. **Create the site directory**:
+   ```bash
+   mkdir -p site
+   cp -r web/dist/* site/
+   cp -r data site/
+   cp -r config site/
+   cp -r plots site/ 2>/dev/null || true
+   ```
+
+3. **Test locally**:
+   ```bash
+   cd site
+   python -m http.server 8000
+   # Open http://localhost:8000
+   ```
+
+### 3️⃣ Quick Test with Mock Data
+
+If you want to test without real API calls:
+```bash
+python pipelines/run_all.py --seed
+```
+This generates mock data for all indicators.
+
 ## 📊 Adding New Indicators
 
 ### 1. Update the Catalog

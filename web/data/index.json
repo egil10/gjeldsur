@@ -1,0 +1,37 @@
+{
+  "indicators": [
+    {
+      "id": "cpi",
+      "path": "/data/cpi/latest.json",
+      "title": "Consumer Price Index (CPI)",
+      "unit": "Index (2015=100)",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "unemployment",
+      "path": "/data/unemployment/latest.json",
+      "title": "Unemployment Rate",
+      "unit": "Percent",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "production",
+      "path": "/data/production/latest.json",
+      "title": "Industrial Production",
+      "unit": "Index (2015=100)",
+      "frequency": "monthly",
+      "politics_overlay": true
+    },
+    {
+      "id": "construction",
+      "path": "/data/construction/latest.json",
+      "title": "Construction Costs",
+      "unit": "Index (2015=100)",
+      "frequency": "monthly",
+      "politics_overlay": true
+    }
+  ],
+  "last_updated": "2025-08-11T20:49:43.548426Z"
+}
